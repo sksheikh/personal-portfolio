@@ -1,6 +1,6 @@
 /********** Template CSS **********/
 :root {
-    --primary: #6244C5;
+    --primary: #0079B1;
     --secondary: #FFC448;
     --light: #FAFAFB;
     --dark: #12141D;
@@ -38,6 +38,16 @@
     visibility: visible;
     opacity: 1;
 }
+
+/*** Color ***/
+.default-color{
+    color: var(--primary);
+}
+
+.default-bg-color{
+    background-color: var(--primary);
+}
+
 
 
 /*** Button ***/
@@ -106,7 +116,7 @@
 /*** Header ***/
 #home {
     margin-bottom: 6rem;
-    background: url(../img/bg-header.png) left top no-repeat;
+
 }
 
 .typed-cursor {
