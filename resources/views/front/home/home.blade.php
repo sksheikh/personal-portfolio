@@ -11,14 +11,14 @@
             <div class="row g-5 align-items-center">
                 <div class="col-lg-7 py-6 pb-0 pt-lg-0">
                     <h3 class="default-color mb-3">I'm</h3>
-                    <h1 class="display-4 mb-3 text-uppercase">{{$header->name}}</h1>
-                    <h2 class="typed-text-output d-inline"></h2>
+                    <h1 class="display-4 mb-3 text-capitalize">{{$header->name}}</h1>
+                    <h2 class="typed-text-output d-inline text-primary"></h2>
                     <div class="typed-text d-none">{{$header->designation}}</div>
                     <div class="d-flex align-items-center pt-5">
-                        <a href="{{$header->resume}}" class="btn btn-primary default-bg-color py-3 px-4 me-2">Download CV</a>
+                        <a href="{{url($header->resume)}}" class="btn btn-primary default-bg-color py-3 px-4 me-2">Download CV</a>
                         <h5 class="ms-2 mb-0 d-none d-sm-block">Follow Me :
-                            <a href="{{$header->social_linkedin}}"><i class="fab fa-linkedin text-primary"></i></a>
-                            <a href="{{$header->social_github}}"><i class="fab fa-github text-primary"></i></a>
+                            <a href="{{$header->social_linkedin}}"><i class="fab fa-linkedin text-info fs-3"></i></a>
+                            <a href="{{$header->social_github}}"><i class="fab fa-github text-info fs-3 ms-2"></i></a>
 
                         </h5>
                     </div>
@@ -59,73 +59,42 @@
             <div class="row g-5">
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                     <h1 class="display-5 mb-5">Skills & Experience</h1>
-                    <p class="mb-4">Stet no et lorem dolor et diam, amet duo ut dolore vero eos. No stet est diam rebum amet diam ipsum clita dolor duo clita sit.</p>
-                    <h3 class="mb-4">My Skills</h3>
-                    <div class="row align-items-center">
-                        <div class="col-md-6">
-                            <div class="skill mb-4">
-                                <div class="d-flex justify-content-between">
-                                    <h6 class="font-weight-bold">HTML</h6>
-                                    <h6 class="font-weight-bold">95%</h6>
-                                </div>
-                                <div class="progress">
-                                    <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
-                            <div class="skill mb-4">
-                                <div class="d-flex justify-content-between">
-                                    <h6 class="font-weight-bold">CSS</h6>
-                                    <h6 class="font-weight-bold">85%</h6>
-                                </div>
-                                <div class="progress">
-                                    <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
-                            <div class="skill mb-4">
-                                <div class="d-flex justify-content-between">
-                                    <h6 class="font-weight-bold">PHP</h6>
-                                    <h6 class="font-weight-bold">90%</h6>
-                                </div>
-                                <div class="progress">
-                                    <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="skill mb-4">
-                                <div class="d-flex justify-content-between">
-                                    <h6 class="font-weight-bold">Javascript</h6>
-                                    <h6 class="font-weight-bold">90%</h6>
-                                </div>
-                                <div class="progress">
-                                    <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
-                            <div class="skill mb-4">
-                                <div class="d-flex justify-content-between">
-                                    <h6 class="font-weight-bold">Angular JS</h6>
-                                    <h6 class="font-weight-bold">95%</h6>
-                                </div>
-                                <div class="progress">
-                                    <div class="progress-bar bg-dark" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
-                            <div class="skill mb-4">
-                                <div class="d-flex justify-content-between">
-                                    <h6 class="font-weight-bold">Wordpress</h6>
-                                    <h6 class="font-weight-bold">85%</h6>
-                                </div>
-                                <div class="progress">
-                                    <div class="progress-bar bg-info" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
-                        </div>
+                    <h6 class="">My preferred tech-stack:</h6>
+                    <div class="mb-4 d-flex gap-4 flex-wrap">
+                        <div class="item"><img src="https://icongr.am/devicon/laravel-plain.svg?color=e62d2d" alt=""></div>
+                        <div class="item"><img src="https://icongr.am/devicon/php-original.svg?color=e62d2d" alt=""></div>
+                        <div class="item"><img src="https://icongr.am/devicon/mysql-original-wordmark.svg?color=e62d2d" alt=""></div>
+                        <div class="item"><img src="https://icongr.am/devicon/javascript-original.svg?color=e62d2d" alt=""></div>
+                        <div class="item"><img src="https://icongr.am/devicon/jquery-original-wordmark.svg?color=e62d2d" alt=""></div>
+                        <div class="item"><img src="https://icongr.am/devicon/html5-original.svg?color=currentColor" alt=""></div>
+                        <div class="item"><img src="https://icongr.am/devicon/css3-original.svg?color=currentColor" alt=""></div>
+                        <div class="item"><img src="https://icongr.am/devicon/sass-original.svg?color=e62d2d" alt=""></div>
+                        <div class="item"><img src="https://icongr.am/devicon/bootstrap-plain.svg?color=e62d2d" alt=""></div>
+
                     </div>
+
+                    <h6 >Tools I use:</h6>
+                    <div class="mb-4 d-flex gap-4 flex-wrap">
+                        <div class="item"><img src="https://icongr.am/devicon/git-original.svg?color=e62d2d" alt="git"></div>
+                        <div class="item"><img src="https://icongr.am/devicon/github-original.svg?color=e62d2d" alt="github"></div>
+                        <div class="item"><img src="https://icongr.am/devicon/phpstorm-original.svg?color=e62d2d" alt="phpstorm"></div>
+                        <div class="item"><img src="https://icongr.am/devicon/visualstudio-plain.svg?color=e62d2d" alt="visualstudio"></div>
+                    </div>
+
+                    <h6 >I also love:</h6>
+                    <div class="mb-4 d-flex gap-4 flex-wrap">
+                        <div class="item"><img src="https://icongr.am/devicon/c-original.svg?color=currentColor" alt="c"></div>
+                        <div class="item"><img src="https://icongr.am/devicon/python-original.svg?color=currentColor" alt="python"></div>
+                        <div class="item"><img src="https://icongr.am/devicon/angularjs-original.svg?color=currentColor" alt="angularjs"></div>
+                        <div class="item"><img src="https://icongr.am/devicon/wordpress-plain.svg?color=currentColor" alt="wordpress"></div>
+
+                    </div>
+
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
                     <ul class="nav nav-pills rounded border border-2 border-primary mb-5">
                         <li class="nav-item w-50">
-                            <button class="nav-link w-100 py-3 fs-5 active" data-bs-toggle="pill" href="#tab-1">Experience</button>
+                            <button class="nav-link w-100 py-3 fs-5 active" data-bs-toggle="pill" href="#tab-1">Training & Certification</button>
                         </li>
                         <li class="nav-item w-50">
                             <button class="nav-link w-100 py-3 fs-5" data-bs-toggle="pill" href="#tab-2">Education</button>
@@ -134,58 +103,50 @@
                     <div class="tab-content">
                         <div id="tab-1" class="tab-pane fade show p-0 active">
                             <div class="row gy-5 gx-4">
-                                <div class="col-sm-6">
-                                    <h5>UI Designer</h5>
+                                <div class="col-sm-12">
+                                    <h5>PHP with Laravel Framework</h5>
                                     <hr class="text-primary my-2">
-                                    <p class="text-primary mb-1">2000 - 2045</p>
-                                    <h6 class="mb-0">Apex Software Inc</h6>
+                                    <h6 class="mb-0">Basis Institute of Technology & Management (BITM)</h6>
+                                    <p class="text-primary small mb-0">Under the Skills for Employment Investments Program (SEIP)</p>
+                                    <p class="mb-0"><b>Duration:</b> 240 hours</p>
+                                    <p><b>Covered topics:</b>
+                                        <small class="bg-secondary px-2">PHP</small>
+                                        <small class="bg-secondary px-2">OOP</small>
+                                        <small class="bg-secondary px-2">MVC</small>
+                                        <small class="bg-secondary px-2">Laravel</small>
+                                    </p>
                                 </div>
-                                <div class="col-sm-6">
-                                    <h5>Product Designer</h5>
+                                <div class="col-sm-12">
+                                    <h5>Responsive Web Design</h5>
                                     <hr class="text-primary my-2">
-                                    <p class="text-primary mb-1">2000 - 2045</p>
-                                    <h6 class="mb-0">Apex Software Inc</h6>
+                                    <h6 class="mb-0">Freecodecamp.org</h6>
+                                    <p class="mb-0"><b>Duration:</b> 300 hours</p>
+                                    <p><b>Covered topics:</b>
+                                        <small class="bg-secondary px-2">HTML</small>
+                                        <small class="bg-secondary px-2">CSS</small>
+                                        <small class="bg-secondary px-2">Flexbox</small>
+                                        <small class="bg-secondary px-2">Grid</small>
+                                        <small class="bg-secondary px-2">Responsive Design</small>
+                                    </p>
                                 </div>
-                                <div class="col-sm-6">
-                                    <h5>Web Designer</h5>
-                                    <hr class="text-primary my-2">
-                                    <p class="text-primary mb-1">2000 - 2045</p>
-                                    <h6 class="mb-0">Apex Software Inc</h6>
-                                </div>
-                                <div class="col-sm-6">
-                                    <h5>Apps Designer</h5>
-                                    <hr class="text-primary my-2">
-                                    <p class="text-primary mb-1">2000 - 2045</p>
-                                    <h6 class="mb-0">Apex Software Inc</h6>
-                                </div>
+
                             </div>
                         </div>
                         <div id="tab-2" class="tab-pane fade show p-0">
                             <div class="row gy-5 gx-4">
-                                <div class="col-sm-6">
-                                    <h5>UI Design Course</h5>
+                                <div class="col-sm-12">
+                                    <h5>BSc in Computer Science & Engineering</h5>
                                     <hr class="text-primary my-2">
-                                    <p class="text-primary mb-1">2000 - 2045</p>
-                                    <h6 class="mb-0">Cambridge University</h6>
+                                    <p class="text-primary mb-1">2017 - 2021</p>
+                                    <h6 class="mb-0">University of Scholars</h6>
                                 </div>
-                                <div class="col-sm-6">
-                                    <h5>IOS Development</h5>
+                                <div class="col-sm-12">
+                                    <h5>Higher Secondary School Certificate</h5>
                                     <hr class="text-primary my-2">
-                                    <p class="text-primary mb-1">2000 - 2045</p>
-                                    <h6 class="mb-0">Cambridge University</h6>
+                                    <p class="text-primary mb-1">2013 - 2015</p>
+                                    <h6 class="mb-0">Jahangirnagar University School & College</h6>
                                 </div>
-                                <div class="col-sm-6">
-                                    <h5>Web Design</h5>
-                                    <hr class="text-primary my-2">
-                                    <p class="text-primary mb-1">2000 - 2045</p>
-                                    <h6 class="mb-0">Cambridge University</h6>
-                                </div>
-                                <div class="col-sm-6">
-                                    <h5>Apps Design</h5>
-                                    <hr class="text-primary my-2">
-                                    <p class="text-primary mb-1">2000 - 2045</p>
-                                    <h6 class="mb-0">Cambridge University</h6>
-                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -195,75 +156,8 @@
     </div>
     <!-- Expertise End -->
 
-
-    <!-- Service Start -->
-    <div class="container-fluid bg-light my-5 py-6" id="service">
-        <div class="container">
-            <div class="row g-5 mb-5 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="col-lg-6">
-                    <h1 class="display-5 mb-0">My Services</h1>
-                </div>
-                <div class="col-lg-6 text-lg-end">
-                    <a class="btn btn-primary py-3 px-5" href="">Hire Me</a>
-                </div>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="service-item d-flex flex-column flex-sm-row bg-white rounded h-100 p-4 p-lg-5">
-                        <div class="bg-icon flex-shrink-0 mb-3">
-                            <i class="fa fa-crop-alt fa-2x text-dark"></i>
-                        </div>
-                        <div class="ms-sm-4">
-                            <h4 class="mb-3">Creative Design</h4>
-                            <h6 class="mb-3">Start from <span class="text-primary">$199</span></h6>
-                            <span>Stet lorem dolor diam amet vero eos. No stet est diam amet diam ipsum. Clita dolor duo clita sit sed sit dolor eos.</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="service-item d-flex flex-column flex-sm-row bg-white rounded h-100 p-4 p-lg-5">
-                        <div class="bg-icon flex-shrink-0 mb-3">
-                            <i class="fa fa-code-branch fa-2x text-dark"></i>
-                        </div>
-                        <div class="ms-sm-4">
-                            <h4 class="mb-3">Graphic Design</h4>
-                            <h6 class="mb-3">Start from <span class="text-primary">$199</span></h6>
-                            <span>Stet lorem dolor diam amet vero eos. No stet est diam amet diam ipsum. Clita dolor duo clita sit sed sit dolor eos.</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="service-item d-flex flex-column flex-sm-row bg-white rounded h-100 p-4 p-lg-5">
-                        <div class="bg-icon flex-shrink-0 mb-3">
-                            <i class="fa fa-code fa-2x text-dark"></i>
-                        </div>
-                        <div class="ms-sm-4">
-                            <h4 class="mb-3">Web Design</h4>
-                            <h6 class="mb-3">Start from <span class="text-primary">$199</span></h6>
-                            <span>Stet lorem dolor diam amet vero eos. No stet est diam amet diam ipsum. Clita dolor duo clita sit sed sit dolor eos.</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="service-item d-flex flex-column flex-sm-row bg-white rounded h-100 p-4 p-lg-5">
-                        <div class="bg-icon flex-shrink-0 mb-3">
-                            <i class="fa fa-laptop-code fa-2x text-dark"></i>
-                        </div>
-                        <div class="ms-sm-4">
-                            <h4 class="mb-3">UI/UX Design</h4>
-                            <h6 class="mb-3">Start from <span class="text-primary">$199</span></h6>
-                            <span>Stet lorem dolor diam amet vero eos. No stet est diam amet diam ipsum. Clita dolor duo clita sit sed sit dolor eos.</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Service End -->
-
-
     <!-- Projects Start -->
-    <div class="container-xxl py-6 pt-5" id="project">
+    <div class="container-xxl bg-light py-6 pt-5" id="project">
         <div class="container">
             <div class="row g-5 mb-5 align-items-center wow fadeInUp" data-wow-delay="0.1s">
                 <div class="col-lg-6">
