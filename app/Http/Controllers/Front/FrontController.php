@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
 use App\Models\About;
 use App\Models\Header;
+use App\Models\ProjectTitle;
 use Illuminate\Http\Request;
 
 class FrontController extends Controller
@@ -14,6 +15,7 @@ class FrontController extends Controller
         return view('front.home.home',[
             'header'=>Header::first(),
             'about'=>About::first(),
+            'projectTitle'=>ProjectTitle::first(),
         ]);
     }
 }

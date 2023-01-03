@@ -5,6 +5,9 @@ use App\Http\Controllers\Front\FrontController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\HeaderController;
 use App\Http\Controllers\Admin\AboutController;
+use App\Http\Controllers\Admin\ProjectTitleController;
+use App\Http\Controllers\Admin\ProjectCategoryController;
+
 
 Route::as('front.')->group(function (){
    Route::get('/',[FrontController::class,'home'])->name('home');
@@ -22,6 +25,12 @@ Route::middleware([
     //About Routes
     Route::get('/about',[AboutController::class,'index'])->name('about.index');
     Route::post('/about',[AboutController::class,'update'])->name('about.update');
+    //Project Routes
+    Route::get('/project-title',[ProjectTitleController::class,'index'])->name('project-title.index');
+    Route::post('/project-title',[ProjectTitleController::class,'update'])->name('project-title.update');
+    Route::resource('/project-categories',ProjectCategoryController::class);
+
+
 
 
 
