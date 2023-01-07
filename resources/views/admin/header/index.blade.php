@@ -68,6 +68,7 @@
                                 <div class="form-group mb-2">
                                     <label for="">Resume</label>
                                     <input type="file" name="resume"  class="form-control" accept="application/pdf">
+                                    <span>{{$header->resume}}</span>
                                 </div>
 
                                 <div class="form-group mb-2">

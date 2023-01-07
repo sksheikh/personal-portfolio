@@ -25,7 +25,7 @@
                     <nav class="sb-sidenav-menu-nested nav">
                         <a class="nav-link" href="{{route('project-title.index')}}">Projects Title</a>
                         <a class="nav-link" href="{{route('project-categories.index')}}">Projects Category</a>
-                        <a class="nav-link" href="layout-sidenav-light.html">Projects</a>
+                        <a class="nav-link" href="{{route('projects.index')}}">Projects</a>
                     </nav>
                 </div>
                 <!--End Project Nav-->

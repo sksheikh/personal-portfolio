@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\HeaderController;
 use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\ProjectTitleController;
 use App\Http\Controllers\Admin\ProjectCategoryController;
+use App\Http\Controllers\Admin\ProjectController;
 
 
 Route::as('front.')->group(function (){
@@ -29,6 +30,7 @@ Route::middleware([
     Route::get('/project-title',[ProjectTitleController::class,'index'])->name('project-title.index');
     Route::post('/project-title',[ProjectTitleController::class,'update'])->name('project-title.update');
     Route::resource('/project-categories',ProjectCategoryController::class);
+    Route::resource('/projects',ProjectController::class);
 
 
 
