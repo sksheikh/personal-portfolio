@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\ProjectTitleController;
 use App\Http\Controllers\Admin\ProjectCategoryController;
 use App\Http\Controllers\Admin\ProjectController;
+use App\Http\Controllers\Admin\ContactController;
 
 
 Route::as('front.')->group(function (){
@@ -23,14 +24,19 @@ Route::middleware([
     //Header Routes
     Route::get('/header',[HeaderController::class,'index'])->name('headers.index');
     Route::post('/header',[HeaderController::class,'update'])->name('headers.update');
+
     //About Routes
     Route::get('/about',[AboutController::class,'index'])->name('about.index');
     Route::post('/about',[AboutController::class,'update'])->name('about.update');
-    //Project Routes
+
+    //Project  Routes
     Route::get('/project-title',[ProjectTitleController::class,'index'])->name('project-title.index');
     Route::post('/project-title',[ProjectTitleController::class,'update'])->name('project-title.update');
     Route::resource('/project-categories',ProjectCategoryController::class);
     Route::resource('/projects',ProjectController::class);
+
+    //Contact Routes
+    Route::resource('/contacts',ContactController::class);
 
 
 

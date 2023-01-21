@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\ProjectCategory;
+use App\Models\Contact;
 use Illuminate\Http\Request;
 
-class ProjectCategoryController extends Controller
+class ContactController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class ProjectCategoryController extends Controller
      */
     public function index()
     {
-        return view('admin.project.project-category.index',[
-            'projectCategories'=>ProjectCategory::latest()->get(),
+        return view('admin.contact.index',[
+            'contacts'=>Contact::latest()->get(),
         ]);
     }
 
@@ -27,7 +27,7 @@ class ProjectCategoryController extends Controller
      */
     public function create()
     {
-
+        //
     }
 
     /**
@@ -38,8 +38,21 @@ class ProjectCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        ProjectCategory::createOrUpdateProjectCategory($request);
-        return redirect()->route('project-categories.index')->with('success','Project Category Created Successfully');
+        $validateData = $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'message' => 'required',
+        ]);
+
+//        if ($validateData->errors()) {
+//            return redirect()->to('/'.'#contact')->withErrors($validateData);
+//        }
+
+        Contact::createOrUpdateContact($request);
+
+        return  redirect()->to('/'.'#contact')->with('success','Sent message successfully');
+
+
     }
 
     /**
@@ -61,9 +74,7 @@ class ProjectCategoryController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.project.project-category.index',[
-            'projectCategory'=>ProjectCategory::find($id),
-        ]);
+        //
     }
 
     /**
@@ -75,8 +86,7 @@ class ProjectCategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        ProjectCategory::createOrUpdateProjectCategory($request,$id);
-        return redirect()->route('project-categories.index')->with('success','Project Categories Updated Successfully');
+        //
     }
 
     /**
@@ -87,7 +97,6 @@ class ProjectCategoryController extends Controller
      */
     public function destroy($id)
     {
-        ProjectCategory::find($id)->delete();
-        return redirect()->route('project-categories.index')->with('success','Project Category Deleted Successfully');
+        //
     }
 }

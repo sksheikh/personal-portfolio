@@ -46,6 +46,7 @@
 
 .default-bg-color{
     background-color: var(--primary);
+    border-color: var(--primary);
 }
 
 

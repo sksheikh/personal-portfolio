@@ -29,6 +29,11 @@
                     </nav>
                 </div>
                 <!--End Project Nav-->
+
+                <a class="nav-link" href="{{route('contacts.index')}}">
+                    <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                    Contact
+                </a>
             </div>
         </div>
         <div class="sb-sidenav-footer">
