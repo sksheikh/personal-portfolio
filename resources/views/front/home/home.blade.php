@@ -6,7 +6,7 @@
 
 @section('body')
     <!-- Header Start -->
-    <div class="container-fluid bg-light my-6 mt-0" id="home" style="height:80vh;  background:rgba(0,0,0,1) url({{$header->bg_image}}) no-repeat right top / cover;">
+    <div class="container-fluid bg-light my-6 mt-0" id="home" style="height:80vh;  background:rgba(0,0,0,0.75)">
         <div class="container">
             <div class="row g-5 align-items-center">
                 <div class="col-lg-7 py-6 pb-0 pt-lg-0">
@@ -17,8 +17,8 @@
                     <div class="d-flex align-items-center pt-5">
                         <a href="{{url($header->resume)}}" class="btn btn-primary default-bg-color py-3 px-4 me-2">Download CV</a>
                         <h5 class="ms-2 mb-0 d-none d-sm-block">Follow Me :
-                            <a href="{{$header->social_linkedin}}"><i class="fab fa-linkedin text-info fs-3"></i></a>
-                            <a href="{{$header->social_github}}"><i class="fab fa-github text-info fs-3 ms-2"></i></a>
+                            <a href="{{$header->social_linkedin}}"><i class="fab fa-linkedin text-primary fs-3"></i></a>
+                            <a href="{{$header->social_github}}"><i class="fab fa-github text-primary fs-3 ms-2"></i></a>
 
                         </h5>
                     </div>
@@ -166,66 +166,24 @@
                 <div class="col-lg-6 text-lg-end">
                     <ul class="list-inline mx-n3 mb-0" id="portfolio-flters">
                         <li class="mx-3 active" data-filter="*">All Projects</li>
-                        <li class="mx-3" data-filter=".first">UI/UX Design</li>
-                        <li class="mx-3" data-filter=".second">Graphic Design</li>
+                        @foreach($projectCategories as $projectCategory)
+                        <li class="mx-3" data-filter=".{{$projectCategory->data_filter}}">{{$projectCategory->name}}</li>
+                        @endforeach
                     </ul>
                 </div>
             </div>
             <div class="row g-4 portfolio-container wow fadeInUp" data-wow-delay="0.1s">
-                <div class="col-lg-4 col-md-6 portfolio-item first">
+                @foreach($projects as $project)
+                <div class="col-lg-4 col-md-6 portfolio-item {{$project->category->data_filter}}">
                     <div class="portfolio-img rounded overflow-hidden">
-                        <img class="img-fluid" src="{{asset('/')}}front/assets/img/project-1.jpg" alt="">
+                        <img class="img-fluid" src="{{asset($project->image)}}" alt="">
                         <div class="portfolio-btn">
-                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href="img/project-1.jpg" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
+                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href="{{asset($project->image)}}" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
                             <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href=""><i class="fa fa-link"></i></a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 portfolio-item second">
-                    <div class="portfolio-img rounded overflow-hidden">
-                        <img class="img-fluid" src="{{asset('/')}}front/assets/img/project-2.jpg" alt="">
-                        <div class="portfolio-btn">
-                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href="img/project-2.jpg" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href=""><i class="fa fa-link"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 portfolio-item first">
-                    <div class="portfolio-img rounded overflow-hidden">
-                        <img class="img-fluid" src="{{asset('/')}}front/assets/img/project-3.jpg" alt="">
-                        <div class="portfolio-btn">
-                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href="img/project-3.jpg" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href=""><i class="fa fa-link"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 portfolio-item second">
-                    <div class="portfolio-img rounded overflow-hidden">
-                        <img class="img-fluid" src="{{asset('/')}}front/assets/img/project-4.jpg" alt="">
-                        <div class="portfolio-btn">
-                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href="img/project-4.jpg" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href=""><i class="fa fa-link"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 portfolio-item first">
-                    <div class="portfolio-img rounded overflow-hidden">
-                        <img class="img-fluid" src="{{asset('/')}}front/assets/img/project-5.jpg" alt="">
-                        <div class="portfolio-btn">
-                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href="img/project-5.jpg" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href=""><i class="fa fa-link"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 portfolio-item second">
-                    <div class="portfolio-img rounded overflow-hidden">
-                        <img class="img-fluid" src="{{asset('/')}}front/assets/img/project-6.jpg" alt="">
-                        <div class="portfolio-btn">
-                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href="img/project-6.jpg" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href=""><i class="fa fa-link"></i></a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
@@ -239,58 +197,50 @@
                     <h1 class="display-5 mb-0">Let's Work Together</h1>
                 </div>
                 <div class="col-lg-6 text-lg-end">
-                    <a class="btn btn-primary py-3 px-5" href="">Say Hello</a>
+                    <a class="btn btn-primary default-bg-color py-3 px-5" href="">Say Hello</a>
                 </div>
             </div>
             <div class="row g-5">
-                <div class="col-lg-5 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <p class="mb-2">My office:</p>
-                    <h3 class="fw-bold">123 Street, New York, USA</h3>
-                    <hr class="w-100">
-                    <p class="mb-2">Call me:</p>
-                    <h3 class="fw-bold">+012 345 6789</h3>
-                    <hr class="w-100">
-                    <p class="mb-2">Mail me:</p>
-                    <h3 class="fw-bold">info@example.com</h3>
-                    <hr class="w-100">
-                    <p class="mb-2">Follow me:</p>
-                    <div class="d-flex pt-2">
-                        <a class="btn btn-square btn-primary me-2" href=""><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-square btn-primary me-2" href=""><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-square btn-primary me-2" href=""><i class="fab fa-youtube"></i></a>
-                        <a class="btn btn-square btn-primary me-2" href=""><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-7 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <p class="mb-4">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p>
-                    <form>
+                <div class="col-lg-7 col-md-6 wow fadeInUp mx-auto" data-wow-delay="0.5s">
+                    <form action="{{route('contacts.store')}}" method="post">
+                        @csrf
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="name" placeholder="Your Name">
+                                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
                                     <label for="name">Your Name</label>
+                                    @error('name')
+                                    <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" id="email" placeholder="Your Email">
+                                    <input type="email" name="email" class="form-control" id="email" placeholder="Your Email" required>
                                     <label for="email">Your Email</label>
+                                    @error('name')
+                                    <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="subject" placeholder="Subject">
+                                    <input type="text" name="subject" class="form-control" id="subject" placeholder="Subject">
                                     <label for="subject">Subject</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 100px"></textarea>
+                                    <textarea class="form-control" name="message" placeholder="Leave a message here" id="message" style="height: 100px" required></textarea>
                                     <label for="message">Message</label>
+                                    @error('name')
+                                    <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-12">
-                                <button class="btn btn-primary py-3 px-5" type="submit">Send Message</button>
+                                <button class="btn btn-primary default-bg-color py-3 px-5" type="submit">Send Message</button>
+                                <span class="text-success">{{Session::has('success') ? Session::get('success') : ''}}</span>
                             </div>
                         </div>
                     </form>

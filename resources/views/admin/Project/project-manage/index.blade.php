@@ -68,7 +68,7 @@
                                     <td><img src="{{asset($project->image)}}" alt="" width="50"></td>
                                     <td>{{$project->status == 1 ? 'Published' : 'Unpublished'}}</td>
                                     <td>
-                                        <a href="{{route('projects.edit',$project->id)}}" class="btn btn-sm btn-info" >Edit</a>
+                                        <a href="{{route('projects.edit',$project->id)}}" class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#projectEdit">Edit</a>
                                         <form action="" method="post" class="d-inline-block" onclick="confirm('Are you sure delete this?')">
                                             @csrf
                                             @method('delete')
@@ -203,9 +203,10 @@
 
                         <div class="form-group mb-2">
                             <label for="">Status</label>
-                            <label for="published2"><input id="published2" type="radio" name="status" value="1" {{$project->status }}>Published</label>
-                            <label for="Unpublished2"><input id="Unpublished2" type="radio" name="status" value="0" {{$project->status}} >Unpublished</label>
+                            <label for="statusPublished"><input id="statusPublished" type="radio" name="status" value="1" {{$project->status == 1 ? 'checked' : ''}}>Published</label>
+                            <label for="statusUnpublished"><input id="statusUnpublished" type="radio" name="status" value="0" {{$project->status == 0 ? 'checked' : ''}}>Unpublished</label>
                         </div>
+                        {{$project->status}}
 
                         <input type="submit" value="Update" class="btn btn-primary">
                     </form>

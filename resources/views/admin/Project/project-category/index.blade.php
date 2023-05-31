@@ -129,6 +129,7 @@
                             <label for="statusPublished"><input id="statusPublished" type="radio" name="status" value="1" {{$projectCategory->status == 1 ? 'checked' : ''}}>Published</label>
                             <label for="statusUnpublished"><input id="statusUnpublished" type="radio" name="status" value="0" {{$projectCategory->status == 0 ? 'checked' : ''}}>Unpublished</label>
                         </div>
+                        {{$projectCategory->status}}
                         <input type="submit" value="Update" class="btn btn-primary ">
                     </form>
                 </div>

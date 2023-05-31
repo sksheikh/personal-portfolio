@@ -30,7 +30,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('admin.project.project-manage.index');
+
     }
 
     /**
@@ -70,9 +70,9 @@ class ProjectController extends Controller
      */
     public function edit($id)
     {
-        return Project::find($id);
+//        return Project::find($id);
         return view('admin.project.project-manage.index',[
-            'project'=>Project::find($id),
+            'project'=> Project::find($id),
         ]);
 
 
