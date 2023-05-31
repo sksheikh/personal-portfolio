@@ -8,6 +8,7 @@
     <meta name="author" content="" />
     <title>Dev Salah Uddin - @yield('title')</title>
     @include('admin.includes.css')
+    @stack('css')
 
 </head>
 <body class="sb-nav-fixed">
@@ -33,7 +34,10 @@
     </div>
 </div>
 @include('admin.includes.scripts')
-@yield('script')
+<script>
+    $('.dropify').dropify();
+</script>
+@stack('script')
 </body>
 </html>
 

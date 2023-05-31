@@ -7,9 +7,9 @@
                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                     Dashboard
                 </a>
-                <a class="nav-link" href="{{route('headers.index')}}">
+                <a class="nav-link" href="{{route('banners.index')}}">
                     <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                    Header
+                    Banner
                 </a>
                 <a class="nav-link" href="{{route('about.index')}}">
                     <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
