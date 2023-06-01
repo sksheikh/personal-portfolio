@@ -17,12 +17,9 @@ Route::middleware([
 ])->group(function () {
     Route::get('/dashboard',[DashboardController::class,'dashboard'])->name('dashboard');
     //Header Routes
-    Route::get('/header',[HeaderController::class,'index'])->name('headers.index');
-    Route::post('/header',[HeaderController::class,'update'])->name('headers.update');
     Route::resource('banners',BannerController::class)->only(['index','store']);
     //About Routes
-    Route::get('/about',[AboutController::class,'index'])->name('about.index');
-    Route::post('/about',[AboutController::class,'update'])->name('about.update');
+    Route::resource('abouts',AboutController::class)->only(['index','store']);
     //Project Routes
     Route::get('/project-title',[ProjectTitleController::class,'index'])->name('project-title.index');
     Route::post('/project-title',[ProjectTitleController::class,'update'])->name('project-title.update');

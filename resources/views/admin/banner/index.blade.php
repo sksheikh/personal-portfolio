@@ -19,36 +19,23 @@
             <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
             <li class="breadcrumb-item active">Header</li>
         </ol>
-
-        @if ($errors->any())
-            <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        @endif
         <div class="row">
             <div class="col-md-12">
                 <div class="card card-body">
                     <span class="text-success">{{ Session::has('success') ? Session::get('success') : '' }}</span>
-                    <form action="{{ route('headers.update') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('banners.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <!--row start-->
-                        <div class="row">
+                        <div class="row mb-3">
                             <div class="col-md-12">
                                 <!--Start Background Image-->
                                 <div class="form-group">
-                                    <label class="form-label" for="">Background Image <span class="text-danger"><sub>*</sub></span></label>
+                                    <label class="form-label" for="bg_image">Background Image <span class="text-danger"><sub>*</sub></span></label>
                                     <div>
-                                        <input type="file" name="bg_image"
+                                        <input id="bg_image" type="file" name="bg_image"
                                             class="dropify form-control mb-2"
-                                            data-default-file="{{asset('upload/banner/'.$banner->bg_image)}}"
+                                            data-default-file="{{$banner->bg_image ? asset('upload/banner/'.$banner->bg_image) : asset('upload/banner/banner.jpg')}}"
                                             accept="image/*">
-                                        <img src="{{ asset($banner->bg_image) }}" alt="" width="100"
-                                            class="border">
 
                                     </div>
                                 </div>
@@ -57,16 +44,17 @@
                         </div>
 
                         <!--row start-->
-                        <div class="row">
+                        <div class="row mb-3">
                             <div class="col-md-6">
                                 <!--Start Profile Image-->
                                 <div class="form-group mb-3">
-                                    <label for="">Profile Image</label>
+                                    <label for="profile_image" class="form-label">Profile Image</label>
                                     <div>
-                                        <input type="file" name="profile_image" class="dropify form-control mb-2"
+                                        <input id="profile_image" type="file"
+                                            name="profile_image"
+                                            class="dropify form-control mb-2"
+                                            data-default-file="{{$banner->profile_image ? asset('upload/banner/'.$banner->profile_image) : asset('upload/banner/profile.png')}}"
                                             accept="image/*">
-                                        <img src="{{ asset($banner->profile_image) }}" alt="" width="50"
-                                            class="border">
 
                                     </div>
                                 </div>
@@ -74,13 +62,13 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group mb-2">
-                                    <label for="">Resume</label>
-                                    <input type="file" name="resume" class="dropify form-control" accept="application/pdf">
-                                    <span>{{ $banner->resume }}</span>
+                                    <label for="resume" class="form-label">Resume</label>
+                                    <input id="resume" type="file"
+                                        name="resume"
+                                        class="dropify form-control"
+                                        data-default-file="{{$banner->resume ? asset('upload/banner/'.$banner->resume) : asset('upload/banner/resume.pdf')}}"
+                                        accept="application/pdf">
                                 </div>
-
-
-
                             </div>
                         </div>
 
@@ -88,14 +76,19 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group mb-2">
-                                    <label for=""> Name</label>
-                                    <input type="text" name="name" value="{{ $banner->name }}" class="form-control">
+                                    <label for="name" class="form-label"> Name</label>
+                                    <input id="name" type="text"
+                                        name="name"
+                                        value="{{ $banner->name ?? ''}}"
+                                        class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group mb-2">
-                                    <label for="">Title</label>
-                                    <input type="text" name="designation" value="{{ $banner->title }}"
+                                    <label for="title">Title</label>
+                                    <input id="title" type="text"
+                                        name="title"
+                                        value="{{ $banner->title ?? ''}}"
                                         class="form-control">
                                 </div>
                             </div>
@@ -105,8 +98,10 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group mb-2">
-                                    <label for="">Github Link</label>
-                                    <input type="text" name="social_github" value="{{ $banner->github_link }}"
+                                    <label for="github_link">Github Link</label>
+                                    <input id="github_link" type="text"
+                                        name="github_link"
+                                        value="{{ $banner->github_link ?? '' }}"
                                         class="form-control">
                                 </div>
                             </div>
@@ -114,17 +109,21 @@
                             <div class="col-md-6">
 
                                 <div class="form-group mb-2">
-                                    <label for="">Linkedin Link</label>
-                                    <input type="text" name="social_linkedin" value="{{ $banner->github_link }}"
+                                    <label for="linkedin_link">Linkedin Link</label>
+                                    <input id="linkedin_link" type="text"
+                                        name="linkedin_link"
+                                        value="{{ $banner->linkedin_link ?? '' }}"
                                         class="form-control">
                                 </div>
                             </div>
                         </div>
 
                         <!--row start-->
-                        <div class="row">
+                        <div class="row my-4">
                             <div class="col-md-12 text-end">
-                                <input type="submit" value="Update Info" class="btn btn-primary ">
+                                <button type="submit"  class="btn btn-sm btn-primary ">
+                                    <i class="fa fa-plus-circle"></i> Update
+                                </button>
                             </div>
                         </div>
                     </form>

@@ -8,6 +8,7 @@
     <meta content="" name="keywords">
     <meta content="" name="description">
     @include('front.includes.css')
+    @stack('css')
 </head>
 
 <body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="51">

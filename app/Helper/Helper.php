@@ -10,26 +10,23 @@ class Helper
     {
         if ($fileObject)
         {
+            $fileDirectory = 'upload/'.$directory.'/';
             if ($existFileUrl)
             {
-                if (file_exists($existFileUrl))
-                {
-                    unlink($existFileUrl);
-                }
+                unlink(public_path($fileDirectory).$existFileUrl);
             }
-            $fileName = time().rand(10, 1000).$fileObject->getClientOriginalName();
-            $fileDirectory = 'admin/assets/img/upload-images/'.$directory.'/';
+            $fileName = time().rand(10, 1000).'_'.$fileObject->getClientOriginalName();
+
             $fileObject->move($fileDirectory, $fileName);
-            $fileUrl = $fileDirectory.$fileName;
         } else {
             if ($existFileUrl)
             {
-                $fileUrl = $existFileUrl;
+                $fileName = $existFileUrl;
             } else {
-                $fileUrl = null;
+                $fileName = null;
             }
         }
-        return $fileUrl;
+        return $fileName;
     }
 
 
