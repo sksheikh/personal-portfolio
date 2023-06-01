@@ -37,7 +37,7 @@
 <script>
     $('.dropify').dropify();
 </script>
-@stack('script')
+@stack('js')
 </body>
 </html>
 

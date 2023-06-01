@@ -2,26 +2,47 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Helper\Helper;
 use App\Http\Controllers\Controller;
 use App\Models\About;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class AboutController extends Controller
 {
+
     public function index()
     {
-        return view('admin.about.index',[
-            'about'=>About::first(),
-        ]);
+        $about = About::first();
+        return view('admin.about.index',compact('about'));
     }
 
-    public function update(Request $request)
+
+    public function store(Request $request)
     {
-        $validateDate = $request->validate([
-            'image' => 'required',
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required'
         ]);
-        About::updateAbout($request);
-        return redirect()->route('about.index')->with('success','About updated successfully' );
+
+        try {
+            $about = About::first();
+            $about->update([
+                'title' => $request->title,
+                'description' => $request->description,
+                'image' => Helper::fileUpload($request->file('image'),'about',$about->image ?? null),
+            ]);
+
+            notify()->success('success','About updated successfully');
+            return redirect()->route('abouts.index');
+
+        } catch (\Throwable $th) {
+            Log::error($th->getMessage());
+            notify()->error('error','About update failed');
+            return redirect()->back();
+
+        }
     }
+
 
 }

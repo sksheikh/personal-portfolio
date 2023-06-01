@@ -4,27 +4,44 @@
     Professional Full Stack Developer
 @endsection
 
+@push('css')
+<style>
+#home{
+    height:80vh;
+    background-color: rgba(0,0,0,0.75);
+    background-image: url('{{@$banner->bg_image ? asset('upload/banner/'.$banner->bg_image) : asset('upload/banner/banner.jpg')}}');
+    background-repeat: no-repeat  ;
+    background-position: center right;
+    background-size: cover;
+}
+</style>
+
+@endpush
+
 @section('body')
     <!-- Header Start -->
-    <div class="container-fluid bg-light my-6 mt-0" id="home" style="height:80vh;  background:rgba(0,0,0,0.75)">
+    <div class="container-fluid bg-light my-6 mt-0" id="home">
         <div class="container">
             <div class="row g-5 align-items-center">
                 <div class="col-lg-7 py-6 pb-0 pt-lg-0">
                     <h3 class="default-color mb-3">I'm</h3>
-                    <h1 class="display-4 mb-3 text-capitalize">{{$header->name}}</h1>
+                    <h1 class="display-4 mb-3 text-capitalize">{{@$banner->name}}</h1>
                     <h2 class="typed-text-output d-inline text-primary"></h2>
-                    <div class="typed-text d-none">{{$header->designation}}</div>
+                    <div class="typed-text d-none">{{@$banner->title}}</div>
                     <div class="d-flex align-items-center pt-5">
-                        <a href="{{url($header->resume)}}" class="btn btn-primary default-bg-color py-3 px-4 me-2">Download CV</a>
+                        <a href="{{route('front.download')}}"
+                            class="btn btn-primary default-bg-color py-2 px-3 me-2">
+                            <i class="bi bi-box-arrow-down"></i> Download CV</a>
                         <h5 class="ms-2 mb-0 d-none d-sm-block">Follow Me :
-                            <a href="{{$header->social_linkedin}}"><i class="fab fa-linkedin text-primary fs-3"></i></a>
-                            <a href="{{$header->social_github}}"><i class="fab fa-github text-primary fs-3 ms-2"></i></a>
+                            <a href="{{@$banner->linkedin_link}}"><i class="fab fa-linkedin text-muted fs-3"></i></a>
+                            <a href="{{@$banner->github_link}}"><i class="fab fa-github text-muted fs-3 ms-2"></i></a>
 
                         </h5>
                     </div>
                 </div>
                 <div class="col-lg-5">
-                    <img class="img-fluid " src="{{asset($header->profile_image)}}" alt="" >
+                    <img class="img-fluid"
+                        src="{{$banner->profile_image ? asset('upload/banner/'.$banner->profile_image) : asset('upload/banner/profile.png')}}" alt="" >
                 </div>
             </div>
         </div>
@@ -36,14 +53,14 @@
         <div class="container">
             <div class="row g-5">
                 <div class="col-lg-5 wow fadeInUp" data-wow-delay="0.5s">
-                    <img class="img-fluid rounded" src="{{asset($about->image)}}" alt="">
+                    <img class="img-fluid rounded" src="{{@$about->image ? asset('upload/about/'.$about->image) : asset('upload/about/about.png') }} " alt="about-image">
                 </div>
                 <div class="col-lg-7 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="d-flex align-items-center mb-2">
-                        <h2 class="display-5 text-capitalize">{{$about->title}}</h2>
+                        <h2 class="display-5 text-capitalize">{{@$about->title ?? 'About Me' }}</h2>
                     </div>
                     <p class="mb-4">
-                        {!! $about->description !!}
+                        {!! @$about->description !!}
                     </p>
                 </div>
 
@@ -202,7 +219,7 @@
             </div>
             <div class="row g-5">
                 <div class="col-lg-7 col-md-6 wow fadeInUp mx-auto" data-wow-delay="0.5s">
-                    <form action="{{route('contacts.store')}}" method="post">
+                    <form action="" method="post">
                         @csrf
                         <div class="row g-3">
                             <div class="col-md-6">

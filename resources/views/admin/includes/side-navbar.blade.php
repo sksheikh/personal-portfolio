@@ -1,3 +1,6 @@
+@php
+    $route = Route::currentRouteName();
+@endphp
 <div id="layoutSidenav_nav">
     <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
         <div class="sb-sidenav-menu">
@@ -11,7 +14,7 @@
                     <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                     Banner
                 </a>
-                <a class="nav-link" href="{{route('about.index')}}">
+                <a class="nav-link {{$route == 'abouts' ? 'active-nav-link' : ''}}" href="{{route('abouts.index')}}">
                     <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                     About
                 </a>
@@ -30,7 +33,7 @@
                 </div>
                 <!--End Project Nav-->
 
-                <a class="nav-link" href="{{route('contacts.index')}}">
+                <a class="nav-link" href="">
                     <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                     Contact
                 </a>
